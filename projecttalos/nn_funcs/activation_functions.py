@@ -2,7 +2,8 @@ import numpy as np
 
 def sigmoid(x):
     z = (1/(1 + np.exp(-x)))
-    return z
+    cache=x
+    return z,cache
 
 def binary_step(x):
     if x<0:
@@ -12,13 +13,13 @@ def binary_step(x):
 
 def tanh(x):
     z = (2/(1 + np.exp(-2*x))) -1
-    return z
+    cache=x
+    return z,cache
 
 def relu(x):
-    if x<0:
-        return 0
-    else:
-        return x
+    z = np.maximum(0,x)
+    cache=x
+    return z,cache
 
 def elu(x, a):
     if x<0:
@@ -29,4 +30,5 @@ def elu(x, a):
 def softmax(x):
     z = np.exp(x)
     z_ = z/z.sum()
-    return z_
+    cache=x
+    return z_,cache
