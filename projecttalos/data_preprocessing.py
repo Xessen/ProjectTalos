@@ -48,5 +48,5 @@ def ImagePreprocess(path2img,train_size=0.7,size=(80,80)):
     return x_train,x_test,y_train,y_test
 x_train,x_test,y_train,y_test=ImagePreprocess(["Q:\Projects\ProjectTalos\projecttalos\\test0","Q:\Projects\ProjectTalos\projecttalos\\test1"])
 print(x_test.shape)
-print("---------")
+print("-----------")
 print(y_test)
