@@ -23,7 +23,6 @@ def forward_model(X,parameters,layer_func):
     caches = []
     counter=1
     A = X
-    L = len(parameters) // 2
     numberofcalc=len(layer_func)   
     for i in range(numberofcalc):
         layerfunc,layerrepeat=layer_func[i].split("*")[0],layer_func[i].split("*")[1]
