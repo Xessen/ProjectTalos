@@ -2,13 +2,15 @@ from nn_funcs.forward_prop import *
 from nn_funcs.backward_prop import *
 from data_preprocessing import ImagePreprocess
 x_train,x_test,y_train,y_test=ImagePreprocess(["test0","test1"])
+print(y_test)
 
 class NeuralNetwork:
-    def __init__(self,layer_dims,layer_func,learning_rate,iteration):
+    def __init__(self,layer_dims,layer_func,learning_rate,iteration,score=None):
         self.layer_func=layer_func
         self.layer_dims=layer_dims
         self.learning_rate=learning_rate
         self.iteration=iteration
+        self.score=score
     def train(self,X,Y):
         costs=[]
         parameters=param_init(self.layer_dims)
@@ -20,10 +22,14 @@ class NeuralNetwork:
             parameters = update_parameters(parameters,grads,self.learning_rate)
 
             if i%100 == 0:
-                print ("Cost after iteration %i: %f" %(i, cost))
+                print (f"Cost after iteration {i}: {cost}")
                 costs.append(cost)
         return parameters
+    def predict(self,X,parameters):
+        result,cache=forward_model(X,parameters,self.layer_func)
+        return result
 
-nn=NeuralNetwork([19200,3,2,1],["relu*2","sigmoid*1"],0.005,300)
+nn=NeuralNetwork([19200,16,8,1],["relu*2","sigmoid*1"],0.005,1000)
 param=nn.train(x_train,y_train)
 
+print(nn.predict(x_test,param))
