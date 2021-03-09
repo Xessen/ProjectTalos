@@ -1,5 +1,5 @@
 import numpy as np
-from activation_functions import *
+from .activation_functions import *
 
 def compute_cost(AL,Y):
     m = Y.shape[1]

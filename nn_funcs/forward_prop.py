@@ -1,4 +1,4 @@
-from activation_functions import *
+from .activation_functions import *
 import numpy as np
 
 

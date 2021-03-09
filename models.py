@@ -1,5 +1,6 @@
-from forward_prop import *
-
+from nn_funcs.forward_prop import *
+from nn_funcs.backward_prop import *
+from data_preprocessing import ImagePreprocess
 
 class NeuralNetwork:
     def __init__(self,layer_dims,layer_func,learning_rate,iteration):
