@@ -46,7 +46,3 @@ def ImagePreprocess(path2img,train_size=0.7,size=(80,80)):
     x_test=x_test/255.
 
     return x_train,x_test,y_train,y_test
-x_train,x_test,y_train,y_test=ImagePreprocess(["Q:\Projects\ProjectTalos\projecttalos\\test0","Q:\Projects\ProjectTalos\projecttalos\\test1"])
-print(x_test.shape[0])
-print("-----------")
-print(y_test)

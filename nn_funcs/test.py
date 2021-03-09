@@ -7,4 +7,4 @@ def hello(se=["relu*2","sigmoid*1"]):
             sequence.append(a)
 
     return sequence
-hello()
+print(np.log(1.00000000e+000))

@@ -1,9 +1,10 @@
-import numpy as np
 from .activation_functions import *
+import numpy as np
 
 def compute_cost(AL,Y):
     m = Y.shape[1]
-    cost = (-1/m)*np.sum(np.multiply(Y, np.log(AL))+np.multiply(1-Y, np.log(1-AL)))
+
+    cost = (1./m) * (-np.dot(Y,np.log(AL).T) - np.dot(1-Y, np.log(1-AL).T))
     cost = np.squeeze(cost)   
     return cost
 
@@ -38,10 +39,9 @@ def layer_seq(layers):
 def backward_model(AL,Y,caches,layer_func):
     grads = {}
     sequence=layer_seq(layer_func)
-    print(sequence)
     L = len(caches)
     m = AL.shape[1]
-    Y = Y.reshape(AL.shape) 
+    Y = Y.reshape(AL.shape)
     dAL = - (np.divide(Y, AL) - np.divide(1 - Y, 1 - AL)) 
     current_cache = caches[L-1]
     grads["dA" + str(L-1)], grads["dW" + str(L)], grads["db" + str(L)] = backward_activation(dAL, current_cache, activation = sequence[-1])
