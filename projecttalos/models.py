@@ -1,8 +1,9 @@
-from nn_funcs.forward_prop import *
-from nn_funcs.backward_prop import *
-from data_preprocessing import ImagePreprocess
-x_train,x_test,y_train,y_test=ImagePreprocess(["test0","test1"])
-print(y_test)
+from projecttalos.nn_funcs.forward_prop import param_init,forward_model
+from projecttalos.nn_funcs.backward_prop import backward_model,update_parameters,compute_cost
+from projecttalos.data_preprocessing import ImagePreprocess
+import numpy as np
+
+
 
 class NeuralNetwork:
     def __init__(self,layer_dims,layer_func,learning_rate,iteration,train_score=None,test_score=None):
@@ -35,9 +36,3 @@ class NeuralNetwork:
         self.test_score=np.divide(np.sum(Y)-np.mean(np.abs(np.subtract(Y,result))),np.sum(Y))*100
         print(f"Accuracy:{self.test_score}")
         
-
-
-nn=NeuralNetwork([19200,16,4,8,1],["relu*3","sigmoid*1"],0.005,1000)
-param=nn.train(x_train,y_train)
-
-nn.score(x_test,y_test,param)
