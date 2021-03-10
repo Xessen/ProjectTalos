@@ -1,0 +1,7 @@
+include *.py
+include LICENSE
+recursive-include __pycache__ *.pyc
+recursive-include nn_funcs *.py
+recursive-include nn_funcs *.pyc
+recursive-include test0 *.jpg
+recursive-include test1 *.jpg
