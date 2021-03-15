@@ -4,6 +4,12 @@ import cv2
 import random 
 
 def ImagePreprocess(path2img,train_size=0.7,size=(80,80)):
+    """
+    :A function for converting images to numpy arrays,scale and flatten them:
+    :param path2img: A list that holds folders for processing ["/test0","/test1","test2"...] Remember it will label them according to index numbers if you have your own labels you can always overwrite them 
+    :param size: Image size that will be reshaped to
+
+    """
     x_test=[]
     y_test=[[]]
     x_train=[]

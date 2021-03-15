@@ -2,7 +2,7 @@ from setuptools import setup,find_packages
 
 setup(
     name="projecttalos", # 
-    version="0.0.2",
+    version="0.0.3",
     author="Şeyhmus Baskın",
     author_email="seyhmusbaskin@yandex.com",
     description="A small Machine Learning package",
@@ -14,5 +14,5 @@ setup(
     ],
     packages=find_packages(),
     python_requires=">=3.3",
-    install_requires=["numpy>=1.20.0"]
+    install_requires=["numpy>=1.15.0"]
     )
