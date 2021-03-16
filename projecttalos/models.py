@@ -82,17 +82,15 @@ class NeuralNetwork:
 
 class LinearRegression:
     """
-    :This model calculates coefficients,intercept and score(based on LinearRegression.score()):
+    :This class calculates coefficients and intercept of a Multiple Regression model:
 
     :param coefs: Numpy arrays which contains the coefficients of the model
     :param intercept: Numpy array which contains the intercept of the model
-    :param score: R^2 value of the model
 
 
     """
-    def __init__(self,coefs=None,score=None,intercept=None):
+    def __init__(self,coefs=None,intercept=None):
         self.coefs=coefs
-        self.score=score
         self.intercept=intercept
 
     def train(self,X,Y):
@@ -150,7 +148,7 @@ class LinearRegression:
             coefs=self.coefs
             intercept=self.intercept
         prediction=np.dot(coefs.T,X.T)+intercept
-        self.score=(1-(np.sum((Y-prediction)**2)/np.sum((Y-np.mean(Y))**2)))
-        return self.score
-            
-        
+        score=(1-(np.sum((Y-prediction)**2)/np.sum((Y-np.mean(Y))**2)))
+        return score
+
+
