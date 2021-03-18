@@ -2,7 +2,7 @@ from setuptools import setup,find_packages
 
 setup(
     name="projecttalos", # 
-    version="0.0.3",
+    version="0.0.5",
     author="Şeyhmus Baskın",
     author_email="seyhmusbaskin@yandex.com",
     description="A small Machine Learning package",
