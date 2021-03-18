@@ -50,10 +50,15 @@ Models
 │   ├───train()
 │   └───predict()
 │   └───score()
+│
+├───Multiple/Linear Regression
+│   ├───train()
+│   └───predict()
+│   └───score()
 .
 .
 .
-├───KNN,SVM,LR,....(Coming Soon)
+├───KNN,SVM,....(Coming Soon)
 
 Data Processing
 ├───ImagePreprocessing()
